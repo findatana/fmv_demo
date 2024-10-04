@@ -26,4 +26,13 @@ st.write("Number of compounding periods per year is ", freq)
 t = int(time)
 for year in range(1, t + 1):
     principal = principal * (1 + rate / freq) ** freq
-    st.write(f"Year {year}: ${principal:.2f}")
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        st.write(f"Year {year}")
+    with col2:
+        st.write(f"${principal:.2f}")
+    with col3:
+        if principal < 1000000:
+            st.write("You are not a millionair")
+        else:
+            st.write("You become a dollar millionair")
